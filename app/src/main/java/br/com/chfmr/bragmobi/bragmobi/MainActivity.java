@@ -1,5 +1,6 @@
 package br.com.chfmr.bragmobi.bragmobi;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 import android.content.Intent;
+import android.net.Uri;
 
 public class MainActivity extends ActionBarActivity
         implements View.OnClickListener {
@@ -32,22 +34,25 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onClick(View view){
 
+        Uri uri = null;
+        Intent intent = null;
+
         switch (view.getId()){
             case R.id.btn_horarios_de_onibus:
-                Intent it_btn_horarios_de_onibus = new Intent(this, LineBusActivity.class);
-                startActivity(it_btn_horarios_de_onibus);
+                intent = new Intent(this, LineBusActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_denuncia_anonima:
-                Intent it_btn_denuncia_anonima = new Intent(this, LineBusActivity.class);
-                startActivity(it_btn_denuncia_anonima);
+                intent = new Intent(this, LineBusActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_disk_entrega:
-                Intent it_btn_disk_entrega = new Intent(this, LineBusActivity.class);
-                startActivity(it_btn_disk_entrega);
+                intent = new Intent(this, CategoryActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_contato_app:
-                Intent it_btn_contato_app = new Intent(this, LineBusActivity.class);
-                startActivity(it_btn_contato_app);
+                intent = new Intent(this, ContactActivity.class);
+                startActivity(intent);
                 break;
         }
     }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.TextView;
 
 public class LineBusActivity extends ActionBarActivity {
 
@@ -15,7 +16,6 @@ public class LineBusActivity extends ActionBarActivity {
 
         Intent it = getIntent();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

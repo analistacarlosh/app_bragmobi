@@ -20,14 +20,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityLineBus"
-            android:label="@string/title_activity_activity_line_bus" >
-        </activity>
-        <activity
-            android:name=".ActivityContact"
-            android:label="@string/title_activity_activity_contact" >
-        </activity>
-        <activity
             android:name=".CategoryActivity"
             android:label="@string/title_activity_category" >
         </activity>
