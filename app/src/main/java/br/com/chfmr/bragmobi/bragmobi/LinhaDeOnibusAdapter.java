@@ -39,8 +39,8 @@ public class LinhaDeOnibusAdapter extends ArrayAdapter<LinhaDeOnibus> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_linha, null);
 
         holder = new ViewHolder();
-        holder.imgLogo = (ImageView) convertView.findViewById(R.id.imgLogo);
-        holder.txtNome = (TextView) convertView.findViewById(R.id.txtNome);
+        holder.imgIcon = (ImageView) convertView.findViewById(R.id.imgIcon);
+       // holder.txtNome = (TextView) convertView.findViewById(R.id.txtNome);
         holder.txtNumero = (TextView) convertView.findViewById(R.id.txtNumero);
         holder.txtSentidoIda = (TextView) convertView.findViewById(R.id.txtSentidoIda);
         holder.txtSentidoVolta = (TextView) convertView.findViewById(R.id.txtSentidoVolta);
@@ -50,22 +50,20 @@ public class LinhaDeOnibusAdapter extends ArrayAdapter<LinhaDeOnibus> {
             holder = (ViewHolder)convertView.getTag();
         }
 
-        // 3
         Resources res = getContext().getResources();
         Drawable draw = res.getDrawable(R.drawable.ic_action_bus);
 
-        holder.imgLogo.setImageDrawable(draw);
-        holder.txtNome.setText(linha.nome);
-        holder.txtNumero.setText(linha.nome);
+        holder.imgIcon.setImageDrawable(draw);
+       // holder.txtNome.setText(linha.nome);
+        holder.txtNumero.setText(Integer.toString(linha.numero) + " - ");
         holder.txtSentidoIda.setText(linha.sentido_id);
-        holder.txtSentidoVolta.setText(linha.sentido_volda);
+        holder.txtSentidoVolta.setText("Sentido: " + linha.sentido_volda);
 
-        //4
         return convertView;
     }
 
     static class ViewHolder {
-        ImageView imgLogo;
+        ImageView imgIcon;
         TextView txtNome;
         TextView txtNumero;
         TextView txtSentidoIda;

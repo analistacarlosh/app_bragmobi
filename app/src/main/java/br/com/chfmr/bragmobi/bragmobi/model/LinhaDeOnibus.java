@@ -24,15 +24,15 @@ public class LinhaDeOnibus implements Serializable {
     public int numero;
     public String sentido_id;
     public String sentido_volda;
-    public String imagem;
+    public String imgIcon;
 
     public LinhaDeOnibus(String nome, int numero, String sentido_id,
-                         String sentido_volda, String imagem){
+                         String sentido_volda, String imgIcon){
         this.nome = nome;
         this.numero = numero;
         this.sentido_id = sentido_id;
         this.sentido_volda = sentido_volda;
-        this.imagem = imagem;
+        this.imgIcon = imgIcon;
     }
 
     @Override
@@ -81,8 +81,7 @@ public class LinhaDeOnibus implements Serializable {
                     objetoLinhaDeOnibus.getInt("numero"),
                     objetoLinhaDeOnibus.getString("sentido_ida"),
                     objetoLinhaDeOnibus.getString("sendito_volta"),
-                    "http://www.guiadebraganca.com.br/public/imagens/icon_facebook.png"
-                    // objetoLinhaDeOnibus.getString("imagem")
+                    objetoLinhaDeOnibus.getString("nome")
             );
 
             listaDeLinhaDeOnibus.add(linha);

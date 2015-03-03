@@ -2,49 +2,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    android:padding="6dp">
+    android:padding="4dp"
+    android:background="#ffffff">
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
         android:src="@drawable/ic_action_bus"
-        android:id="@+id/imgLogo"
+        android:id="@+id/imgIcon"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="8dp" />
+    />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@null"
-        android:id="@+id/txtNome"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/imgLogo"
-        android:layout_toRightOf="@+id/imgLogo"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@null"
+        android:text="107"
         android:id="@+id/txtNumero"
-        android:layout_below="@+id/txtNome"
-        android:layout_alignLeft="@+id/txtNome"
-        android:textStyle="italic"
+        android:textStyle="normal"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/imgIcon"
+        android:gravity="center_vertical"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtSentidoIda"
-        android:text="@null"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        />
+        android:text="CDHU Saada Nader Abi Chedid via UPA"
+        android:layout_toRightOf="@+id/txtNumero"
+        android:textStyle="normal"
+        android:textSize="20sp"
+    />
     <TextView
         android:id="@+id/txtSentidoVolta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@null"
+        android:text="Universidade São Francisco"
+        android:layout_toRightOf="@+id/imgIcon"
+        android:layout_below="@+id/txtSentidoIda"
+        android:textStyle="normal"
+        android:textSize="20sp"
         />
 </RelativeLayout>

@@ -3,6 +3,8 @@ package br.com.chfmr.bragmobi.bragmobi;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 
 import br.com.chfmr.bragmobi.bragmobi.model.LinhaDeOnibus;
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
@@ -19,8 +24,9 @@ import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
 /**
  * Created by carlosfm on 15/02/15.
  */
-public class LinhasDeOnibusListFragment extends Fragment {
+public class LinhasDeOnibusListFragment extends ListFragment {
 
+    private static final String TAG = "LIST_LINHAS";
     LinhasDeOnibusTask mTask;
     List<LinhaDeOnibus> mLinhaDeOnibus;
     ListView mListView;
@@ -37,10 +43,11 @@ public class LinhasDeOnibusListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        View layout = inflater.inflate(R.layout.fragment_linhas_de_onibus_list, null);
-        mTextMensagem = (TextView)layout.findViewById(android.R.id.empty);
-        mProgressBar = (ProgressBar)layout.findViewById(R.id.progressBar);
-        mListView = (ListView)layout.findViewById(R.id.list);
+        View layout     = inflater.inflate(R.layout.fragment_linhas_de_onibus_list, null);
+        mTextMensagem   = (TextView)layout.findViewById(android.R.id.empty);
+        mProgressBar    = (ProgressBar)layout.findViewById(R.id.progressBar);
+        mListView       = (ListView)layout.findViewById(android.R.id.list);
+        //android.R.id.list
         mListView.setEmptyView(mTextMensagem);
         return layout;
     }
@@ -60,16 +67,23 @@ public class LinhasDeOnibusListFragment extends Fragment {
             if(AppHttp.hasConect(this.getActivity())){
                 iniciarDownload();
             } else {
-                mTextMensagem.setText("Sem conexão");
+                mTextMensagem.setText("Sem conexão com a internet");
             }
         } else if (mTask.getStatus() == AsyncTask.Status.RUNNING){
             exibirProgress(true);
         }
     }
 
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        Log.w(TAG, "onListItemClick: ID: " + id + " -- " + l.getAdapter().getItem(position));
+    }
+
     private void exibirProgress(boolean exibir) {
         if (exibir) {
-            mTextMensagem.setText("Baixando informações dos livros...");
+            mTextMensagem.setText("Baixando informações...");
         }
         mTextMensagem.setVisibility(exibir ? View.VISIBLE : View.GONE);
         mProgressBar.setVisibility(exibir ? View.VISIBLE : View.GONE);
@@ -92,7 +106,6 @@ public class LinhasDeOnibusListFragment extends Fragment {
 
         @Override
         protected List<LinhaDeOnibus> doInBackground(Void... strings) {
-            //return LivroHttp.carregarLivrosJson();
             return LinhaDeOnibus.carregarLinhaOnibusJson();
         }
 
@@ -105,7 +118,7 @@ public class LinhasDeOnibusListFragment extends Fragment {
                 mLinhaDeOnibus.addAll(linhas);
                 mAdapter.notifyDataSetChanged();
             } else {
-                mTextMensagem.setText("Falha ao obter Linhas de Ônibus");
+                mTextMensagem.setText("Falha ao obter dados.");
             }
         }
     }
