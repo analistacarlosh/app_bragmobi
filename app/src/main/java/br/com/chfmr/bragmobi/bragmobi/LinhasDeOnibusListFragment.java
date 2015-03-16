@@ -1,5 +1,8 @@
 package br.com.chfmr.bragmobi.bragmobi;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -78,7 +81,11 @@ public class LinhasDeOnibusListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Log.w(TAG, "onListItemClick: ID: " + id + " -- " + l.getAdapter().getItem(position));
+        int idLinha = mLinhaDeOnibus.get(position).id_linha;
+
+        Intent intent = new Intent(this.getActivity(), LineBusDetailActivity.class);
+        intent.putExtra("idLineBus", idLinha);
+        startActivity(intent);
     }
 
     private void exibirProgress(boolean exibir) {

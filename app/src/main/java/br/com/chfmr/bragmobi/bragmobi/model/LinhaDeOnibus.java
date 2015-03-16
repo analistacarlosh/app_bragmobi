@@ -16,23 +16,41 @@ import java.util.List;
 
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
 
+// Percelable
 public class LinhaDeOnibus implements Serializable {
 
-    public static final String LINHAS_ONIBUS_URL_JSON = "http://apionibus.comercial.ws/bragmobi/linhas-de-onibus/offset/0/limit/10";
+    public static final String ENVIROMENT = "PROD";
 
+    public static final String ENVIROMENT_DEV = "http://127.0.0.1:8070/bragmobi/";
+    public static final String ENVIROMENT_PROD = "http://apionibus.comercial.ws/bragmobi/";
+    public static final String ENVIROMENT_URL = ENVIROMENT == "DEV" ? ENVIROMENT_DEV : ENVIROMENT_PROD;
+
+    public static final String LINHAS_ONIBUS_URL_JSON = ENVIROMENT_URL + "linhas-de-onibus/offset/0/limit/10";
+    public static final String DETAIL_LINE_BUS_URL    = ENVIROMENT_URL + "linhas-de-onibus/linha/";
+
+    public int id_linha;
     public String nome;
     public int numero;
     public String sentido_id;
     public String sentido_volda;
     public String imgIcon;
+    public String linha_observacoes;
+    public String linha_itinerarios_sentido_ida;
+    public String linha_itinerarios_sentido_volta;
 
-    public LinhaDeOnibus(String nome, int numero, String sentido_id,
-                         String sentido_volda, String imgIcon){
+    public LinhaDeOnibus(int id_linha, String nome, int numero, String sentido_id,
+                         String sentido_volda, String imgIcon,
+                         String linha_observacoes, String linha_itinerarios_sentido_ida,
+                         String linha_itinerarios_sentido_volta){
+        this.id_linha = id_linha;
         this.nome = nome;
         this.numero = numero;
         this.sentido_id = sentido_id;
         this.sentido_volda = sentido_volda;
         this.imgIcon = imgIcon;
+        this.linha_observacoes = linha_observacoes;
+        this.linha_itinerarios_sentido_ida = linha_itinerarios_sentido_ida;
+        this.linha_itinerarios_sentido_volta = linha_itinerarios_sentido_volta;
     }
 
     @Override
@@ -77,16 +95,65 @@ public class LinhaDeOnibus implements Serializable {
             JSONObject objetoLinhaDeOnibus = jsonLinhasDeOnibus.getJSONObject(contador);
 
             LinhaDeOnibus linha = new LinhaDeOnibus(
+                    objetoLinhaDeOnibus.getInt("id_linha"),
                     objetoLinhaDeOnibus.getString("nome"),
                     objetoLinhaDeOnibus.getInt("numero"),
                     objetoLinhaDeOnibus.getString("sentido_ida"),
                     objetoLinhaDeOnibus.getString("sendito_volta"),
-                    objetoLinhaDeOnibus.getString("nome")
+                    objetoLinhaDeOnibus.getString("nome"),
+                    objetoLinhaDeOnibus.getString("linha_observacoes"),
+                    objetoLinhaDeOnibus.getString("linha_itinerarios_sentido_ida"),
+                    objetoLinhaDeOnibus.getString("linha_itinerarios_sentido_volta")
             );
 
             listaDeLinhaDeOnibus.add(linha);
         }
 
         return listaDeLinhaDeOnibus;
+    }
+
+    public static List<LinhaDeOnibus> getDetailLineBus(int idLineBus){
+
+        try {
+
+            Log.i("APPBUS", "idLineBus: " + Integer.toString(idLineBus));
+
+            HttpURLConnection connecting = AppHttp.connect(DETAIL_LINE_BUS_URL + Integer.toString(idLineBus));
+            int resposta = connecting.getResponseCode();
+
+            if(resposta == HttpURLConnection.HTTP_OK){
+                InputStream is = connecting.getInputStream();
+                JSONObject json = new JSONObject(AppHttp.bytesToString(is));
+                Log.i("APPBUS", "getDetailLineBus" + json);
+                return readDetailLineBus(json);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<LinhaDeOnibus> readDetailLineBus(JSONObject json) throws JSONException {
+
+        List<LinhaDeOnibus> detailLineBus = new ArrayList<LinhaDeOnibus>();
+        JSONArray jsonDetailLineBus = json.getJSONArray("dados-da-linha");
+        JSONObject objectDetailLineBus = jsonDetailLineBus.getJSONObject(0);
+
+            LinhaDeOnibus linha = new LinhaDeOnibus(
+                    objectDetailLineBus.getInt("id_linha"),
+                    objectDetailLineBus.getString("nome"),
+                    objectDetailLineBus.getInt("numero"),
+                    objectDetailLineBus.getString("sentido_ida"),
+                    objectDetailLineBus.getString("sendito_volta"),
+                    objectDetailLineBus.getString("nome"),
+                    objectDetailLineBus.getString("linha_observacoes"),
+                    objectDetailLineBus.getString("linha_itinerarios_sentido_ida"),
+                    objectDetailLineBus.getString("linha_itinerarios_sentido_volta")
+            );
+
+        detailLineBus.add(linha);
+
+        return detailLineBus;
     }
 }

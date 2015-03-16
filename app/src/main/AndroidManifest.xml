@@ -31,6 +31,10 @@
             android:name=".ContactActivity"
             android:label="@string/title_activity_contact" >
         </activity>
+        <activity
+            android:name=".LineBusDetailActivity"
+            android:label="@string/title_activity_line_bus_detail" >
+        </activity>
     </application>
 
 </manifest>

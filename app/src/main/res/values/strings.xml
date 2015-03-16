@@ -13,5 +13,6 @@
     <string name="title_activity_category">CategoryActivity</string>
     <string name="title_activity_line_bus">LineBusActivity</string>
     <string name="title_activity_contact">ContactActivity</string>
+    <string name="title_activity_line_bus_detail">LineBusDetailActivity</string>
 
 </resources>
