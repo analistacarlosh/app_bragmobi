@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/lago_braganca"
+        android:scaleType="center"
+    />
 
     <Button
         android:id="@+id/btn_horarios_de_onibus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="@string/btn_horarios_de_onibus"
         android:layout_margin="10sp"
         android:onClick="listagem_linhas_onibus"
+        android:gravity="center_vertical"
+        android:paddingLeft="30sp"
+        android:background="@drawable/background_button_red"
+        android:textColor="@color/textWith"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="DENÚNCIA ANÔNIMA"
         android:layout_marginTop="12sp"
         />
@@ -31,14 +48,16 @@
         android:text="@string/btn_denuncia_anonima"
         android:layout_marginLeft="10sp"
         android:layout_marginRight="10sp"
-        android:textSize="14sp"
+        android:textSize="16sp"
+        android:background="@drawable/background_button_orange"
+        android:textColor="@color/textWith"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="DISK-ENTREGAS"
         android:layout_marginTop="12sp"
         />
@@ -50,7 +69,9 @@
         android:text="@string/btn_disk_entrega"
         android:layout_marginLeft="10sp"
         android:layout_marginRight="10sp"
-        android:textSize="14sp"
+        android:textSize="16sp"
+        android:background="@drawable/background_button_green"
+        android:textColor="@color/textWith"
         />
 
     <TextView
@@ -67,11 +88,15 @@
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:text="@string/btn_contato_app"
-         android:layout_marginTop="10sp"
          android:layout_marginLeft="10sp"
          android:layout_marginRight="10sp"
-         android:textSize="14sp"
-         android:layout_gravity="bottom"
-     />
+         android:textSize="16sp"
+         android:gravity="center_vertical"
+         android:paddingLeft="30sp"
+         android:background="@drawable/background_button_blue"
+         android:textColor="@color/textWith"
+         android:layout_marginBottom="15sp"
+          />
 
 </LinearLayout>
+</ScrollView>

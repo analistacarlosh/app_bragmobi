@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.List;
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
 import br.com.chfmr.bragmobi.bragmobi.model.LinhaDeOnibus;
 import br.com.chfmr.bragmobi.bragmobi.model.HorariosLinhaDeOnibus;
+import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 
 
 public class LineBusDetailActivity extends ActionBarActivity {
@@ -33,6 +36,7 @@ public class LineBusDetailActivity extends ActionBarActivity {
     TextView mTextObservacao;
     List<HorariosLinhaDeOnibus> horariosLinhas;
     List<LinhaDeOnibus> detailLineBus;
+    TableLayout tableLayoutHorarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +49,13 @@ public class LineBusDetailActivity extends ActionBarActivity {
         mTextMensagem   = (TextView) findViewById(android.R.id.empty);
         mProgressBar    = (ProgressBar) findViewById(R.id.progressBar);
         mTextNomeLinha          = (TextView) findViewById(R.id.nomeLinha);
-        mTextItinerariosIda     = (TextView) findViewById(R.id.itinerariosIda);
-        mTextItinerariosVolta   = (TextView) findViewById(R.id.itinerariosVolta);
-        mTextObservacao         = (TextView) findViewById(R.id.observacoes);
+        mTextItinerariosIda     = (TextView) findViewById(R.id.content_itinerary_from);
+        mTextItinerariosVolta   = (TextView) findViewById(R.id.content_itinerary_to);
+        // mTextObservacao         = (TextView) findViewById(R.id.observacoes);
+        tableLayoutHorarios =   (TableLayout) findViewById(R.id.tableHorarios);
 
-        mTextNomeLinha.setVisibility(View.INVISIBLE);
+
+                mTextNomeLinha.setVisibility(View.INVISIBLE);
         mTextItinerariosIda.setVisibility(View.INVISIBLE);
         mTextItinerariosVolta.setVisibility(View.INVISIBLE);
 
@@ -133,7 +139,39 @@ public class LineBusDetailActivity extends ActionBarActivity {
                     mTextNomeLinha.setText(detailLineBus.get(0).nome);
                     mTextItinerariosIda.setText(detailLineBus.get(0).linha_itinerarios_sentido_ida);
                     mTextItinerariosVolta.setText(detailLineBus.get(0).linha_itinerarios_sentido_volta);
-                    mTextObservacao.setText(detailLineBus.get(0).linha_observacoes);
+                    // mTextObservacao.setText(detailLineBus.get(0).linha_observacoes);
+
+                    tableLayoutHorarios.removeAllViews();
+
+                    int rows = 2;
+                    int cols = 2;
+
+                    // outer for loop
+                    for (int i = 1; i <= rows; i++) {
+
+                        TableRow row = new TableRow(getBaseContext());
+                        row.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+                                LayoutParams.WRAP_CONTENT));
+
+                        // inner for loop
+                        for (int j = 1; j <= cols; j++) {
+
+                            TextView tv = new TextView(getBaseContext());
+                            tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+                                    LayoutParams.WRAP_CONTENT));
+                            tv.setBackgroundResource(R.drawable.background_button_red);
+                            tv.setPadding(5, 5, 5, 5);
+                            tv.setText("R " + i + ", C" + j);
+
+                            row.addView(tv);
+
+                        }
+
+                        tableLayoutHorarios.addView(row);
+
+                    }
+
+
                 }
 
                 exibirProgress(false);

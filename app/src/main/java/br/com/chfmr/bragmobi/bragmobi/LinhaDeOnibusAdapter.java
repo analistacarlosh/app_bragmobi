@@ -40,9 +40,9 @@ public class LinhaDeOnibusAdapter extends ArrayAdapter<LinhaDeOnibus> {
 
         holder = new ViewHolder();
         holder.imgIcon = (ImageView) convertView.findViewById(R.id.imgIcon);
-       // holder.txtNome = (TextView) convertView.findViewById(R.id.txtNome);
-        holder.txtNumero = (TextView) convertView.findViewById(R.id.txtNumero);
-        holder.txtSentidoIda = (TextView) convertView.findViewById(R.id.txtSentidoIda);
+        holder.txtNome = (TextView) convertView.findViewById(R.id.txtName);
+        // holder.txtNumero = (TextView) convertView.findViewById(R.id.txtNumero);
+        // holder.txtSentidoIda = (TextView) convertView.findViewById(R.id.txtSentidoIda);
         holder.txtSentidoVolta = (TextView) convertView.findViewById(R.id.txtSentidoVolta);
         convertView.setTag(holder);
         } else {
@@ -54,9 +54,9 @@ public class LinhaDeOnibusAdapter extends ArrayAdapter<LinhaDeOnibus> {
         Drawable draw = res.getDrawable(R.drawable.ic_action_bus);
 
         holder.imgIcon.setImageDrawable(draw);
-       // holder.txtNome.setText(linha.nome);
-        holder.txtNumero.setText(Integer.toString(linha.numero) + " - ");
-        holder.txtSentidoIda.setText(linha.sentido_id);
+        holder.txtNome.setText(linha.nome);
+       // holder.txtNumero.setText(Integer.toString(linha.numero) + " - ");
+       // holder.txtSentidoIda.setText(linha.sentido_id);
         holder.txtSentidoVolta.setText("Sentido: " + linha.sentido_volda);
 
         return convertView;

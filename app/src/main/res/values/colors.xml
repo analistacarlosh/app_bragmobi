@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_primary">#212121</color>
+
+    <!-- Set Default -->
+    <color name="primary">#F44336</color>
+
+    <!-- Set Default -->
+    <color name="primary_dark">#D32F2F</color>
+
+    <color name="primary_selection">#C5CAE9</color>
+
+    <!-- Set Default -->
+    <color name="accent">#FF5252</color>
+
+    <color name="accent_dark">#F44336</color>
+
+    <color name="accent_selection">#FF80AB</color>
+
+    <!-- Set Default -->
+    <color name="divider">@color/primary_selection</color>
+
+    <!-- Set Default -->
+    <color name="text_color">#727272</color>
+    <color name="background">#FFFFFF</color>
+
+    <color name="textWith">#FFFFFF</color>
+</resources>

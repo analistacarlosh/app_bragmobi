@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:name=".CategoryActivity"
-            android:label="@string/title_activity_category" >
+            android:label="@string/title_activity_delivery" >
         </activity>
         <activity
             android:name=".LineBusActivity"
@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".LineBusDetailActivity"
-            android:label="@string/title_activity_line_bus_detail" >
+            android:label="@string/activity_line_bus_detail_title" >
         </activity>
     </application>
 

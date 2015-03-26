@@ -47,11 +47,13 @@ public class MainActivity extends ActionBarActivity
                 startActivity(intent);
                 break;
             case R.id.btn_disk_entrega:
-                intent = new Intent(this, CategoryActivity.class);
+                intent = new Intent(this, LineBusActivity.class);
+                // intent = new Intent(this, CategoryActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_contato_app:
-                intent = new Intent(this, ContactActivity.class);
+                intent = new Intent(this, LineBusActivity.class);
+                // intent = new Intent(this, ContactActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -4,40 +4,96 @@
     android:layout_height="fill_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#eeeeee"
     tools:context="br.com.chfmr.bragmobi.bragmobi.LineBusDetailActivity">
-
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        >
 
-    <TextView android:text="Detail Line Bus" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:id="@+id/nomeLinha"/>
+    <TextView android:text="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nomeLinha"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        />
 
-    <TextView android:text="Itinérarios" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:text="@string/activity_line_bus_detail_title_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        />
 
-    <TextView android:text="Ida" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!-- Itinerário Ida -->
 
-    <TextView android:text="Ida" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:id="@+id/itinerariosIda"/>
+    <TextView
+        android:text="@string/activity_line_bus_detail_title_itinerary_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        />
 
-    <TextView android:text="Volta" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView android:text="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/content_itinerary_from"
+                android:background="@drawable/background_textview_itineraries"
+                android:textColor="#000000"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:padding="14sp"
+                />
 
-    <TextView android:text="Volta" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:id="@+id/itinerariosVolta" />
 
-    <TextView android:text="Volta" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/observacoes" />
+    <!-- Itinerário Volta -->
 
+        <TextView
+        android:text="@string/activity_line_bus_detail_title_itinerary_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        />
+
+        <TextView android:text="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/content_itinerary_to"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:textSize="16dp"
+            android:background="@drawable/background_textview_itineraries"
+            android:padding="14sp"
+         />
+
+    <!-- Itinerário observacoes
+
+        <TextView
+            android:text="@null"
+            android:id="@+id/observacoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:textSize="16dp"
+            />
+    -->
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
@@ -51,7 +107,67 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/progressBar"/>
+            android:layout_below="@+id/progressBar"
+            android:textColor="#000000"
+            />
+
+        <!--
+        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2" >
+
+            <TextView
+                android:text="08:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                />
+
+            <TextView
+                android:text="09:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                />
+
+            <TextView
+                android:text="10:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                />
+
+            <TextView
+                android:text="11:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                />
+        </GridLayout>
+        -->
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:shrinkColumns="*"
+            android:stretchColumns="*"
+            android:id="@+id/tableHorarios"
+            >
+        </TableLayout>
+
+        <Space
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="#ff1a7317"
+            android:visibility="visible" />
 
     </LinearLayout>
 

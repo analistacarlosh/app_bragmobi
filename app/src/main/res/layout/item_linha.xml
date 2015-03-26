@@ -2,8 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    android:padding="4dp"
-    android:background="#ffffff">
+    android:padding="5dp"
+    android:background="@color/background"
+    android:layout_margin="4sp"
+    >
 
     <ImageView
         android:layout_width="40dp"
@@ -18,30 +20,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="107"
-        android:id="@+id/txtNumero"
+        android:id="@+id/txtName"
         android:textStyle="normal"
-        android:textSize="20sp"
+        android:textSize="18dp"
         android:layout_toRightOf="@+id/imgIcon"
         android:gravity="center_vertical"
+        android:textColor="#000000"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtSentidoIda"
-        android:text="CDHU Saada Nader Abi Chedid via UPA"
-        android:layout_toRightOf="@+id/txtNumero"
-        android:textStyle="normal"
-        android:textSize="20sp"
-    />
-    <TextView
-        android:id="@+id/txtSentidoVolta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Universidade São Francisco"
-        android:layout_toRightOf="@+id/imgIcon"
-        android:layout_below="@+id/txtSentidoIda"
-        android:textStyle="normal"
-        android:textSize="20sp"
+    <!--
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="107"
+            android:id="@+id/txtNumero"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_toRightOf="@+id/imgIcon"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSentidoIda"
+            android:text="CDHU Saada Nader Abi Chedid via UPA"
+            android:layout_toRightOf="@+id/txtNumero"
+            android:textStyle="normal"
+            android:textSize="16sp"
         />
-</RelativeLayout>
+        -->
+        <TextView
+            android:id="@+id/txtSentidoVolta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Universidade São Francisco"
+            android:layout_toRightOf="@+id/imgIcon"
+            android:layout_below="@+id/txtName"
+            android:textStyle="normal"
+            android:textSize="16dp"
+            />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_chevron_right_24px"
+            android:id="@+id/icChevronRight"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="8dp"
+            android:layout_toRightOf="@+id/txtSentidoVolta"
+            />
+    </RelativeLayout>

@@ -7,7 +7,9 @@
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@android:id/list" />
+        android:id="@android:id/list"
+        android:background="@color/background"
+     />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
@@ -23,4 +25,5 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/progressBar"/>
+
 </RelativeLayout>

@@ -1,18 +1,21 @@
 <resources>
-    <string name="app_name">bragMobi</string>
+    <string name="app_name">BragançaApp</string>
 
     <string name="action_settings">Configurações</string>
     <string name="btn_horarios_de_onibus">Horários de Ônibus - NSF</string>
     <string name="btn_denuncia_anonima">Vandalismo, assalto, pichação e outros</string>
     <string name="btn_disk_entrega">Marmitex, Lanches, Farmácias e outros</string>
     <string name="btn_contato_app">Contato, dúvida e ajuda!</string>
-    <string name="title_activity_activity_line_bus">ActivityLineBus</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_activity_contact">ActivityContact</string>
-    <string name="title_activity_category">CategoryActivity</string>
-    <string name="title_activity_line_bus">LineBusActivity</string>
-    <string name="title_activity_contact">ContactActivity</string>
-    <string name="title_activity_line_bus_detail">LineBusDetailActivity</string>
+    <string name="activity_line_bus_detail_title">Informações da Linha de Ônibus</string>
+    <string name="activity_line_bus_detail_title_hours">HORÁRIOS</string>
+    <string name="activity_line_bus_detail_title_itinerary_from">ITINERÁRIOS IDA</string>
+    <string name="activity_line_bus_detail_title_itinerary_to">ITINERÁRIOS VOLTA</string>
+
+    <string name="title_activity_line_bus">Linhas de Ônibus</string>
+    <string name="title_activity_denunciation">Formulária de Denúncia</string>
+    <string name="title_activity_delivery">Disk Entregas</string>
+    <string name="title_activity_services">Disk Serviços</string>
+    <string name="title_activity_contact">Formulário de Contato</string>
 
 </resources>
