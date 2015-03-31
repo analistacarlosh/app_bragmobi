@@ -2,6 +2,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.com.chfmr.bragmobi.bragmobi.LineBusActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_points_bus"
+        android:title="Pontos"
+        android:orderInCategory="100"
+        app:showAsAction="always|withText"
+        android:icon="@drawable/ic_action_bus"/>
+
+    <item android:id="@+id/action_linus_bus"
+        android:title="Linha"
+        android:orderInCategory="101"
+        app:showAsAction="collapseActionView|always"
+        android:icon="@drawable/ic_action_phone"/>
+
+    <item android:id="@+id/action_main"
+        android:title="Home"
+        android:orderInCategory="102"
+        app:showAsAction="collapseActionView|always"
+        android:icon="@drawable/ic_action_recomendar"/>
+
 </menu>

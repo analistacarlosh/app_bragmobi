@@ -143,7 +143,7 @@ public class LineBusDetailActivity extends ActionBarActivity {
 
                     tableLayoutHorarios.removeAllViews();
 
-                    int rows = 2;
+                    int rows = 10;
                     int cols = 2;
 
                     // outer for loop
@@ -159,9 +159,9 @@ public class LineBusDetailActivity extends ActionBarActivity {
                             TextView tv = new TextView(getBaseContext());
                             tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
                                     LayoutParams.WRAP_CONTENT));
-                            tv.setBackgroundResource(R.drawable.background_button_red);
+                            tv.setBackgroundResource(R.drawable.background_button_white);
                             tv.setPadding(5, 5, 5, 5);
-                            tv.setText("R " + i + ", C" + j);
+                            tv.setText(i + "0 h");
 
                             row.addView(tv);
 

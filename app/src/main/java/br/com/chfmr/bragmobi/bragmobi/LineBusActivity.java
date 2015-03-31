@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.TextView;
+import android.support.v4.view.MenuItemCompat;
 
 public class LineBusActivity extends ActionBarActivity {
 
