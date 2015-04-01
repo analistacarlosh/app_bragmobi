@@ -17,5 +17,8 @@
     <string name="title_activity_delivery">Disk Entregas</string>
     <string name="title_activity_services">Disk Serviços</string>
     <string name="title_activity_contact">Formulário de Contato</string>
+    <string name="title_activity_bus_station">Pontos de ônibus</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

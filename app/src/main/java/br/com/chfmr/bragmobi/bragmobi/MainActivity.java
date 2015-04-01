@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity
                 startActivity(intent);
                 break;
             case R.id.btn_denuncia_anonima:
-                intent = new Intent(this, LineBusActivity.class);
+                intent = new Intent(this, BusStationActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_disk_entrega:
