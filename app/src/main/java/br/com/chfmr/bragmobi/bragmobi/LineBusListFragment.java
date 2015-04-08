@@ -1,13 +1,9 @@
 package br.com.chfmr.bragmobi.bragmobi;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,25 +13,22 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
-import br.com.chfmr.bragmobi.bragmobi.model.LinhaDeOnibus;
+import br.com.chfmr.bragmobi.bragmobi.model.LineBus;
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
 
 /**
  * Created by carlosfm on 15/02/15.
  */
-public class LinhasDeOnibusListFragment extends ListFragment {
+public class LineBusListFragment extends ListFragment {
 
     private static final String TAG = "LIST_LINHAS";
-    LinhasDeOnibusTask mTask;
-    List<LinhaDeOnibus> mLinhaDeOnibus;
+    LineBusTask mTask;
+    List<LineBus> mLinhaDeOnibus;
     ListView mListView;
     TextView mTextMensagem;
     ProgressBar mProgressBar;
-    LinhaDeOnibusAdapter mAdapter;
+    LineBusAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -60,10 +53,10 @@ public class LinhasDeOnibusListFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         if(mLinhaDeOnibus == null){
-            mLinhaDeOnibus = new ArrayList<LinhaDeOnibus>();
+            mLinhaDeOnibus = new ArrayList<LineBus>();
         }
 
-        mAdapter = new LinhaDeOnibusAdapter(this.getActivity(), mLinhaDeOnibus);
+        mAdapter = new LineBusAdapter(this.getActivity(), mLinhaDeOnibus);
         mListView.setAdapter(mAdapter);
 
         if(mTask == null){
@@ -73,7 +66,7 @@ public class LinhasDeOnibusListFragment extends ListFragment {
                 mTextMensagem.setText("Sem conexão com a internet");
             }
         } else if (mTask.getStatus() == AsyncTask.Status.RUNNING){
-            exibirProgress(true);
+            showProgress(true);
         }
     }
 
@@ -88,7 +81,7 @@ public class LinhasDeOnibusListFragment extends ListFragment {
         startActivity(intent);
     }
 
-    private void exibirProgress(boolean exibir) {
+    private void showProgress(boolean exibir) {
         if (exibir) {
             mTextMensagem.setText("Baixando informações...");
         }
@@ -98,28 +91,28 @@ public class LinhasDeOnibusListFragment extends ListFragment {
 
     public void iniciarDownload() {
         if (mTask == null ||  mTask.getStatus() != AsyncTask.Status.RUNNING) {
-            mTask = new LinhasDeOnibusTask();
+            mTask = new LineBusTask();
             mTask.execute();
         }
     }
 
-    class LinhasDeOnibusTask extends AsyncTask<Void, Void, List<LinhaDeOnibus>>{
+    class LineBusTask extends AsyncTask<Void, Void, List<LineBus>>{
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            exibirProgress(true);
+            showProgress(true);
         }
 
         @Override
-        protected List<LinhaDeOnibus> doInBackground(Void... strings) {
-            return LinhaDeOnibus.carregarLinhaOnibusJson();
+        protected List<LineBus> doInBackground(Void... strings) {
+            return LineBus.carregarLinhaOnibusJson();
         }
 
         @Override
-        protected void onPostExecute(List<LinhaDeOnibus> linhas) {
+        protected void onPostExecute(List<LineBus> linhas) {
             super.onPostExecute(linhas);
-            exibirProgress(false);
+            showProgress(false);
             if (linhas != null) {
                 mLinhaDeOnibus.clear();
                 mLinhaDeOnibus.addAll(linhas);

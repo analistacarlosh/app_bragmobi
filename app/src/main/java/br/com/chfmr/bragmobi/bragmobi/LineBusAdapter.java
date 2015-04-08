@@ -13,17 +13,17 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import br.com.chfmr.bragmobi.bragmobi.model.LinhaDeOnibus;
+import br.com.chfmr.bragmobi.bragmobi.model.LineBus;
 
 /**
  * Created by carlosfm on 04/02/15.
  */
-public class LinhaDeOnibusAdapter extends ArrayAdapter<LinhaDeOnibus> {
+public class LineBusAdapter extends ArrayAdapter<LineBus> {
 
     Context contexto;
-    List<LinhaDeOnibus> linhasDeOnibus;
+    List<LineBus> linhasDeOnibus;
 
-    public LinhaDeOnibusAdapter(Context contexto, List<LinhaDeOnibus> linhasDeOnibus){
+    public LineBusAdapter(Context contexto, List<LineBus> linhasDeOnibus){
 
         super(contexto, 0, linhasDeOnibus);
     }
@@ -31,7 +31,7 @@ public class LinhaDeOnibusAdapter extends ArrayAdapter<LinhaDeOnibus> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
 
-        LinhaDeOnibus linha = getItem(position);
+        LineBus linha = getItem(position);
 
         ViewHolder holder = null;
         if(convertView == null){

@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -16,8 +15,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
-import br.com.chfmr.bragmobi.bragmobi.model.LinhaDeOnibus;
-import br.com.chfmr.bragmobi.bragmobi.model.HorariosLinhaDeOnibus;
+import br.com.chfmr.bragmobi.bragmobi.model.LineBus;
+import br.com.chfmr.bragmobi.bragmobi.model.ScheduleLineBus;
+
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 
@@ -28,14 +28,14 @@ public class LineBusDetailActivity extends ActionBarActivity {
     LinhasDeOnibusTask mTask;
     TextView mTextMensagem;
     ProgressBar mProgressBar;
-    LinhaDeOnibusAdapter mAdapter;
+    LineBusAdapter mAdapter;
 
     TextView mTextNomeLinha;
     TextView mTextItinerariosIda;
     TextView mTextItinerariosVolta;
     TextView mTextObservacao;
-    List<HorariosLinhaDeOnibus> horariosLinhas;
-    List<LinhaDeOnibus> detailLineBus;
+    List<ScheduleLineBus> horariosLinhas;
+    List<LineBus> detailLineBus;
     TableLayout tableLayoutHorarios;
 
     @Override
@@ -66,7 +66,7 @@ public class LineBusDetailActivity extends ActionBarActivity {
                 mTextMensagem.setText("Sem conexão com a internet");
             }
         } else if (mTask.getStatus() == AsyncTask.Status.RUNNING){
-            exibirProgress(true);
+            showProgress(true);
         }
     }
 
@@ -92,7 +92,7 @@ public class LineBusDetailActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void exibirProgress(boolean exibir) {
+    private void showProgress(boolean exibir) {
         if (exibir) {
             mTextMensagem.setText("Baixando detalhes da linha...");
         }
@@ -116,14 +116,14 @@ public class LineBusDetailActivity extends ActionBarActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            exibirProgress(true);
+            showProgress(true);
         }
 
         @Override
         protected Boolean doInBackground(Integer... idLineBus) {
 
-            horariosLinhas = HorariosLinhaDeOnibus.carregarHorariosLinhaOnibusJson();
-            detailLineBus = LinhaDeOnibus.getDetailLineBus(idLineBus[0]);
+            horariosLinhas = ScheduleLineBus.carregarHorariosLinhaOnibusJson();
+            detailLineBus = LineBus.getDetailLineBus(idLineBus[0]);
             Log.i("APPBUS", "LineBusDetailActivity - doInBackground");
 
             return true;
@@ -174,9 +174,9 @@ public class LineBusDetailActivity extends ActionBarActivity {
 
                 }
 
-                exibirProgress(false);
+                showProgress(false);
             } else {
-                exibirProgress(false);
+                showProgress(false);
                 mTextMensagem.setText("Falha ao obter dados.");
             }
         }

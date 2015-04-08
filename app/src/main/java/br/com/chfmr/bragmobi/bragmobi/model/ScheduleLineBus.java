@@ -16,7 +16,7 @@ import java.util.List;
 
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
 
-public class HorariosLinhaDeOnibus implements Serializable {
+public class ScheduleLineBus implements Serializable {
 
     public static final String ENVIROMENT = "PROD";
 
@@ -33,8 +33,8 @@ public class HorariosLinhaDeOnibus implements Serializable {
     public String cor_linha_label;
     public String dias_da_semana;
 
-    public HorariosLinhaDeOnibus(int fk_id_linha, String horario, String sentido,
-                                 String cor_linha_label, String dias_da_semana){
+    public ScheduleLineBus(int fk_id_linha, String horario, String sentido,
+                           String cor_linha_label, String dias_da_semana){
         this.fk_id_linha = fk_id_linha;
         this.horario = horario;
         this.sentido = sentido;
@@ -47,7 +47,7 @@ public class HorariosLinhaDeOnibus implements Serializable {
         return horario;
     }
 
-    public static List<HorariosLinhaDeOnibus> carregarHorariosLinhaOnibusJson(){
+    public static List<ScheduleLineBus> carregarHorariosLinhaOnibusJson(){
 
         try{
             HttpURLConnection connecting = AppHttp.connect(HORARIOS_DA_LINHA_URL_JSON);
@@ -69,9 +69,9 @@ public class HorariosLinhaDeOnibus implements Serializable {
         return null;
     }
 
-    public static List<HorariosLinhaDeOnibus> readJsonHorariosLineBus(JSONObject json) throws JSONException {
+    public static List<ScheduleLineBus> readJsonHorariosLineBus(JSONObject json) throws JSONException {
 
-        List<HorariosLinhaDeOnibus> listaHorariosDeLinhaDeOnibus = new ArrayList<HorariosLinhaDeOnibus>();
+        List<ScheduleLineBus> listaHorariosDeLinhaDeOnibus = new ArrayList<ScheduleLineBus>();
 
         JSONArray jsonHorariosLinhasDeOnibus = json.getJSONArray("horarios-da-linha");
 
@@ -83,7 +83,7 @@ public class HorariosLinhaDeOnibus implements Serializable {
 
             JSONObject objetoHorariosLinhaDeOnibus = jsonHorariosLinhasDeOnibus.getJSONObject(contador);
 
-            HorariosLinhaDeOnibus linha = new HorariosLinhaDeOnibus(
+            ScheduleLineBus linha = new ScheduleLineBus(
                     objetoHorariosLinhaDeOnibus.getInt("fk_id_linha"),
                     objetoHorariosLinhaDeOnibus.getString("horario"),
                     objetoHorariosLinhaDeOnibus.getString("sentido"),

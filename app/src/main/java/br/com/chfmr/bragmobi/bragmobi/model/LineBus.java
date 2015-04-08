@@ -17,7 +17,7 @@ import java.util.List;
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
 
 // Percelable
-public class LinhaDeOnibus implements Serializable {
+public class LineBus implements Serializable {
 
     public static final String ENVIROMENT = "PROD";
 
@@ -38,10 +38,10 @@ public class LinhaDeOnibus implements Serializable {
     public String linha_itinerarios_sentido_ida;
     public String linha_itinerarios_sentido_volta;
 
-    public LinhaDeOnibus(int id_linha, String nome, int numero, String sentido_id,
-                         String sentido_volda, String imgIcon,
-                         String linha_observacoes, String linha_itinerarios_sentido_ida,
-                         String linha_itinerarios_sentido_volta){
+    public LineBus(int id_linha, String nome, int numero, String sentido_id,
+                   String sentido_volda, String imgIcon,
+                   String linha_observacoes, String linha_itinerarios_sentido_ida,
+                   String linha_itinerarios_sentido_volta){
         this.id_linha = id_linha;
         this.nome = nome;
         this.numero = numero;
@@ -58,7 +58,7 @@ public class LinhaDeOnibus implements Serializable {
         return nome + numero;
     }
 
-    public static List<LinhaDeOnibus> carregarLinhaOnibusJson(){
+    public static List<LineBus> carregarLinhaOnibusJson(){
 
         try{
             HttpURLConnection connecting = AppHttp.connect(LINHAS_ONIBUS_URL_JSON);
@@ -80,9 +80,9 @@ public class LinhaDeOnibus implements Serializable {
         return null;
     }
 
-    public static List<LinhaDeOnibus> readJsonLineBus(JSONObject json) throws JSONException {
+    public static List<LineBus> readJsonLineBus(JSONObject json) throws JSONException {
 
-        List<LinhaDeOnibus> listaDeLinhaDeOnibus = new ArrayList<LinhaDeOnibus>();
+        List<LineBus> listaDeLinhaDeOnibus = new ArrayList<LineBus>();
 
         JSONArray jsonLinhasDeOnibus = json.getJSONArray("linhas_de_onibus");
 
@@ -94,7 +94,7 @@ public class LinhaDeOnibus implements Serializable {
 
             JSONObject objetoLinhaDeOnibus = jsonLinhasDeOnibus.getJSONObject(contador);
 
-            LinhaDeOnibus linha = new LinhaDeOnibus(
+            LineBus linha = new LineBus(
                     objetoLinhaDeOnibus.getInt("id_linha"),
                     objetoLinhaDeOnibus.getString("nome"),
                     objetoLinhaDeOnibus.getInt("numero"),
@@ -112,7 +112,7 @@ public class LinhaDeOnibus implements Serializable {
         return listaDeLinhaDeOnibus;
     }
 
-    public static List<LinhaDeOnibus> getDetailLineBus(int idLineBus){
+    public static List<LineBus> getDetailLineBus(int idLineBus){
 
         try {
 
@@ -134,13 +134,13 @@ public class LinhaDeOnibus implements Serializable {
         return null;
     }
 
-    public static List<LinhaDeOnibus> readDetailLineBus(JSONObject json) throws JSONException {
+    public static List<LineBus> readDetailLineBus(JSONObject json) throws JSONException {
 
-        List<LinhaDeOnibus> detailLineBus = new ArrayList<LinhaDeOnibus>();
+        List<LineBus> detailLineBus = new ArrayList<LineBus>();
         JSONArray jsonDetailLineBus = json.getJSONArray("dados-da-linha");
         JSONObject objectDetailLineBus = jsonDetailLineBus.getJSONObject(0);
 
-            LinhaDeOnibus linha = new LinhaDeOnibus(
+            LineBus linha = new LineBus(
                     objectDetailLineBus.getInt("id_linha"),
                     objectDetailLineBus.getString("nome"),
                     objectDetailLineBus.getInt("numero"),
