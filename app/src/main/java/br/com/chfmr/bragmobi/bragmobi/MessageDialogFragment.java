@@ -6,7 +6,7 @@ import android.support.v4.app.DialogFragment;
 import android.app.Dialog;
 
 /**
- * Created by julianolustosa on 3/31/15.
+ * Created by carlosfm on 3/31/15.
  */
 public class MessageDialogFragment extends DialogFragment {
 

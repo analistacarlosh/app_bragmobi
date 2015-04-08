@@ -56,6 +56,10 @@ public class MainActivity extends ActionBarActivity
                 // intent = new Intent(this, ContactActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btn_bus_station:
+                intent = new Intent(this, BusStationActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 
