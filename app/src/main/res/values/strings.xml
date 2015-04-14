@@ -7,6 +7,7 @@
     <string name="btn_disk_entrega">Marmitex, Lanches, Farmácias e outros</string>
     <string name="btn_contato_app">Contato, dúvida e ajuda!</string>
     <string name="btn_bus_station">Pontos de ônibus</string>
+    <string name="btn_bus_station_list">Pontos de ônibus</string>
 
     <string name="activity_line_bus_detail_title">Informações da Linha de Ônibus</string>
     <string name="activity_line_bus_detail_title_hours">HORÁRIOS</string>

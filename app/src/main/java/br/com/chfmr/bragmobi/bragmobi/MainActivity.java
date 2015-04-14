@@ -1,14 +1,15 @@
 package br.com.chfmr.bragmobi.bragmobi;
 
-import android.provider.ContactsContract;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.view.View;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import br.com.chfmr.bragmobi.bragmobi.LineBus.LineBusActivity;
 
 public class MainActivity extends ActionBarActivity
         implements View.OnClickListener {
@@ -21,8 +22,8 @@ public class MainActivity extends ActionBarActivity
         Button btn_horarios_de_onibus = (Button) findViewById(R.id.btn_horarios_de_onibus);
         btn_horarios_de_onibus.setOnClickListener((View.OnClickListener) this);
 
-        Button btn_denuncia_anonima = (Button) findViewById(R.id.btn_denuncia_anonima);
-        btn_denuncia_anonima.setOnClickListener((View.OnClickListener) this);
+        Button btn_bus_station = (Button) findViewById(R.id.btn_bus_station_list);
+        btn_bus_station.setOnClickListener((View.OnClickListener) this);
 
         Button btn_disk_entrega = (Button) findViewById(R.id.btn_disk_entrega);
         btn_disk_entrega.setOnClickListener((View.OnClickListener) this);
@@ -42,8 +43,13 @@ public class MainActivity extends ActionBarActivity
                 intent = new Intent(this, LineBusActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_denuncia_anonima:
+           /* case R.id.btn_denuncia_anonima:
                 intent = new Intent(this, BusStationActivity.class);
+                startActivity(intent);
+                break;
+            */
+            case R.id.btn_bus_station_list:
+                intent = new Intent(this, LineBusActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_disk_entrega:
@@ -56,11 +62,7 @@ public class MainActivity extends ActionBarActivity
                 // intent = new Intent(this, ContactActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_bus_station:
-                intent = new Intent(this, BusStationActivity.class);
-                startActivity(intent);
-                break;
-        }
+       }
     }
 
     @Override

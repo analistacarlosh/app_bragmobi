@@ -42,10 +42,10 @@
         />
 
     <Button
-        android:id="@+id/btn_bus_station"
+        android:id="@+id/btn_bus_station_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_bus_station"
+        android:text="@string/btn_bus_station_list"
         android:layout_marginLeft="10sp"
         android:layout_marginRight="10sp"
         android:textSize="16sp"

@@ -32,7 +32,7 @@
             android:label="@string/title_activity_delivery" >
         </activity>
         <activity
-            android:name=".LineBusActivity"
+            android:name=".LineBus.LineBusActivity"
             android:label="@string/title_activity_line_bus" >
         </activity>
         <activity
@@ -40,7 +40,7 @@
             android:label="@string/title_activity_contact" >
         </activity>
         <activity
-            android:name=".LineBusDetailActivity"
+            android:name=".LineBus.LineBusDetailActivity"
             android:label="@string/activity_line_bus_detail_title" >
         </activity>
 
@@ -52,11 +52,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".BusStationActivity"
-            android:label="@string/title_activity_bus_station" >
-        </activity>
-        <activity
-            android:name=".BusStationListActivity"
+            android:name=".BusStation.BusStationListActivity"
             android:label="@string/title_activity_bus_station_list" >
         </activity>
     </application>

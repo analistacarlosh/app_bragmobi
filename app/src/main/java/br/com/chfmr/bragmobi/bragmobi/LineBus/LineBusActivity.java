@@ -1,4 +1,4 @@
-package br.com.chfmr.bragmobi.bragmobi;
+package br.com.chfmr.bragmobi.bragmobi.LineBus;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.TextView;
 import android.support.v4.view.MenuItemCompat;
+
+import br.com.chfmr.bragmobi.bragmobi.R;
 
 public class LineBusActivity extends ActionBarActivity {
 

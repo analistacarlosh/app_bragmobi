@@ -1,9 +1,11 @@
-package br.com.chfmr.bragmobi.bragmobi;
+package br.com.chfmr.bragmobi.bragmobi.BusStation;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import br.com.chfmr.bragmobi.bragmobi.R;
 
 
 public class BusStationListActivity extends ActionBarActivity {

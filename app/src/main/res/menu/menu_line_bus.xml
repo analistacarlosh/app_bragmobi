@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="br.com.chfmr.bragmobi.bragmobi.LineBusActivity">
+    tools:context="br.com.chfmr.bragmobi.bragmobi.LineBus.LineBusActivity">
 
     <item android:id="@+id/action_points_bus"
         android:title="Pontos"

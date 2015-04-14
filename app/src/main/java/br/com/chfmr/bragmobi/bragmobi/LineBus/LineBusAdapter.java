@@ -1,4 +1,4 @@
-package br.com.chfmr.bragmobi.bragmobi;
+package br.com.chfmr.bragmobi.bragmobi.LineBus;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import br.com.chfmr.bragmobi.bragmobi.R;
 import br.com.chfmr.bragmobi.bragmobi.model.LineBus;
 
 /**

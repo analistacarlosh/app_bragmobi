@@ -2,13 +2,12 @@ package br.com.chfmr.bragmobi.bragmobi;
 
 import android.app.Dialog;
 import android.support.v4.app.FragmentActivity;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-import java.security.MessageDigest;
-
 /**
- * Created by julianolustosa on 3/31/15.
+ * Created by carlosfm on 3/31/15.
  */
 public class PlayServicesUtils {
 

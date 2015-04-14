@@ -1,4 +1,4 @@
-package br.com.chfmr.bragmobi.bragmobi;
+package br.com.chfmr.bragmobi.bragmobi.LineBus;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
+import br.com.chfmr.bragmobi.bragmobi.LineBus.LineBusAdapter;
+import br.com.chfmr.bragmobi.bragmobi.R;
 import br.com.chfmr.bragmobi.bragmobi.model.LineBus;
 import br.com.chfmr.bragmobi.bragmobi.model.ScheduleLineBus;
 
