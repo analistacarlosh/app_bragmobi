@@ -1,25 +1,24 @@
-package br.com.chfmr.bragmobi.bragmobi.BusStation;
+package br.com.chfmr.bragmobi.bragmobi;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import br.com.chfmr.bragmobi.bragmobi.R;
 
-
-public class BusStationListActivity extends ActionBarActivity {
+public class StationBusActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bus_station_list);
+        setContentView(R.layout.activity_station_bus);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_bus_station_list, menu);
+        getMenuInflater().inflate(R.menu.menu_station_bus, menu);
         return true;
     }
 

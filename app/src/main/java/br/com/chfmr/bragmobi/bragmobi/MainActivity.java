@@ -49,7 +49,7 @@ public class MainActivity extends ActionBarActivity
                 break;
             */
             case R.id.btn_bus_station_list:
-                intent = new Intent(this, LineBusActivity.class);
+                intent = new Intent(this, StationBusActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_disk_entrega:
