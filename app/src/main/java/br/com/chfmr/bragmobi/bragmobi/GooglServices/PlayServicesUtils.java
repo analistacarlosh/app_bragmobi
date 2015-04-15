@@ -1,4 +1,4 @@
-package br.com.chfmr.bragmobi.bragmobi;
+package br.com.chfmr.bragmobi.bragmobi.GooglServices;
 
 import android.app.Dialog;
 import android.support.v4.app.FragmentActivity;

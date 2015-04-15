@@ -1,9 +1,8 @@
-package br.com.chfmr.bragmobi.bragmobi;
+package br.com.chfmr.bragmobi.bragmobi.GooglServices;
 
-import android.support.v4.app.DialogFragment;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.app.Dialog;
 
 /**
  * Created by carlosfm on 3/31/15.
