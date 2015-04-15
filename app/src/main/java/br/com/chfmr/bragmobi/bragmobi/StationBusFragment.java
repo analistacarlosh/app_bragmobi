@@ -1,7 +1,8 @@
 package br.com.chfmr.bragmobi.bragmobi;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +23,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.chfmr.bragmobi.bragmobi.model.StationBus;
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
+import br.com.chfmr.bragmobi.bragmobi.model.StationBus;
 
 /**
  * Created by carlosfm on 14/04/15.
  */
-public class StationBusFragment extends Fragment implements
+public class StationBusFragment extends ListFragment implements
         Response.Listener<JSONObject>, Response.ErrorListener {
 
     List<StationBus> mStationBus;
@@ -73,6 +74,17 @@ public class StationBusFragment extends Fragment implements
         } else {
             exibirProgress(true);
         }
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        int idStation = mStationBus.get(position).id_ponto;
+
+        Intent intent = new Intent(this.getActivity(), MapsStationBusActivity.class);
+        intent.putExtra("idStation", idStation);
+        startActivity(intent);
     }
 
     public void iniciarDownload() {

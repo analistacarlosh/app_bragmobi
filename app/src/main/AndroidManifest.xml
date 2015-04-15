@@ -55,6 +55,10 @@
             android:name=".StationBusActivity"
             android:label="@string/title_activity_station_bus" >
         </activity>
+        <activity
+            android:name=".MapsStationBusActivity"
+            android:label="@string/title_activity_maps_station_bus" >
+        </activity>
     </application>
 
 </manifest>
