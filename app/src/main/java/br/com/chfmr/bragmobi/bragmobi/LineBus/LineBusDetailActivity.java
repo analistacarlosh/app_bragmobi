@@ -1,27 +1,26 @@
 package br.com.chfmr.bragmobi.bragmobi.LineBus;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 
 import java.util.List;
 
 import br.com.chfmr.bragmobi.bragmobi.Http.AppHttp;
-import br.com.chfmr.bragmobi.bragmobi.LineBus.LineBusAdapter;
 import br.com.chfmr.bragmobi.bragmobi.R;
 import br.com.chfmr.bragmobi.bragmobi.model.LineBus;
 import br.com.chfmr.bragmobi.bragmobi.model.ScheduleLineBus;
-
-import android.widget.TableRow;
-import android.widget.TableRow.LayoutParams;
 
 
 public class LineBusDetailActivity extends ActionBarActivity {
@@ -56,8 +55,7 @@ public class LineBusDetailActivity extends ActionBarActivity {
         // mTextObservacao         = (TextView) findViewById(R.id.observacoes);
         tableLayoutHorarios =   (TableLayout) findViewById(R.id.tableHorarios);
 
-
-                mTextNomeLinha.setVisibility(View.INVISIBLE);
+        mTextNomeLinha.setVisibility(View.INVISIBLE);
         mTextItinerariosIda.setVisibility(View.INVISIBLE);
         mTextItinerariosVolta.setVisibility(View.INVISIBLE);
 
@@ -159,21 +157,18 @@ public class LineBusDetailActivity extends ActionBarActivity {
                         for (int j = 1; j <= cols; j++) {
 
                             TextView tv = new TextView(getBaseContext());
-                            tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-                                    LayoutParams.WRAP_CONTENT));
+                            tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
                             tv.setBackgroundResource(R.drawable.background_button_white);
                             tv.setPadding(5, 5, 5, 5);
                             tv.setText(i + "0 h");
+                            tv.setTextColor(Color.parseColor("#000000"));
+                            tv.setTextSize(18);
 
                             row.addView(tv);
-
                         }
 
                         tableLayoutHorarios.addView(row);
-
                     }
-
-
                 }
 
                 showProgress(false);
